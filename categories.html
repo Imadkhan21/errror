@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Book Categories</title>
+  <!-- <link rel="stylesheet" href="styles.css"> -->
+  <link rel="stylesheet" href="style.css"> <!-- Link to your custom CSS file -->
+  <script src="index.js"></script>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+  <!-- Navigation bar -->
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href="index.html">Home</a>
+    <a class="navbar-brand" href="cart.html">Cart</a>
+    <a class="navbar-brand" href="contact.html">Contact Us</a>
+    <a class="navbar-brand" href="payment.html">Payment</a>
+  </nav>
+
+  <!-- Filter options or search functionality -->
+  <div class="container mt-4">
+    <input type="text" id="search-input" placeholder="Search by Title or Author">
+    <button id="search-button">Search</button>
+  </div>
+
+  <!-- Book list container -->
+  <div class="container mt-4">
+    <div class="row" id="book-row">
+        <script>
+            let data = []; // Variable to store book data
+        
+            // Function to fetch and display books
+            async function displayBooks() {
+              try {
+                const response = await fetch('book.json'); // Assuming 'book.json' is in the same directory
+                data = await response.json(); // Store book data in the data variable
+        
+                const bookRow = document.getElementById('book-row');
+        
+                // Iterate through the book data
+                data.forEach((book) => {
+                  const bookCard = document.createElement('div');
+                  bookCard.classList.add('col-md-3', 'mb-4');
+                  bookCard.innerHTML = `
+                    <div class="card">
+                      <img src="${book.cover_image}" class="card-img-top" alt="${book.title}">
+                      <div class="card-body">
+                        <h5 class="card-title">${book.title}</h5>
+                        <p class="card-text">Author: ${book.author}</p>
+                        <p class="card-text">Price: $${book.price.toFixed(2)}</p>
+                        <button class="btn btn-primary" onclick="addToCart('${book.title}', '${book.author}', ${book.price})">Add to Cart</button>
+                      </div>
+                    </div>
+                  `;
+        
+                  // Append the book card to the row
+                  bookRow.appendChild(bookCard);
+                });
+              } catch (error) {
+                console.error('Error loading books:', error);
+              }
+            }
+        
+            // Function to add an item to the cart
+            function addToCart(title, author, price) {
+              const cartItem = {
+                title: title,
+                author: author,
+                price: price,
+                quantity: 1,
+              };
+        
+              // Retrieve existing cart items from local storage or initialize an empty array
+              let cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
+        
+              // Check if the item already exists in the cart
+              const existingItem = cartItems.find((item) => item.title === title);
+        
+              if (existingItem) {
+                existingItem.quantity += 1; // Increment the quantity
+              } else {
+                cartItems.push(cartItem); // Add the new item to the cart
+              }
+        
+              // Update the cart items in local storage
+              localStorage.setItem('cartItems', JSON.stringify(cartItems));
+        
+              // Alert the user that the item has been added to the cart (you can customize this)
+              alert(`${title} has been added to the cart!`);
+        
+              // Note: The above code shows an alert message for adding items to the cart. You can customize this part or implement a more sophisticated cart management system as needed.
+            }
+        
+            // Function to perform a search
+            function performSearch() {
+              const searchInput = document.getElementById('search-input');
+              const searchTerm = searchInput.value.toLowerCase();
+        
+              const bookRow = document.getElementById('book-row');
+              bookRow.innerHTML = ''; // Clear the existing book cards
+        
+              // Filter and display books that match the search term
+              data.forEach((book) => {
+                if (book.title.toLowerCase().includes(searchTerm) || book.author.toLowerCase().includes(searchTerm)) {
+                  const bookCard = document.createElement('div');
+                  bookCard.classList.add('col-md-3', 'mb-4');
+                  bookCard.innerHTML = `
+                    <div class="card">
+                      <img src="${book.cover_image}" class="card-img-top" alt="${book.title}">
+                      <div class="card-body">
+                        <h5 class="card-title">${book.title}</h5>
+                        <p class="card-text">Author: ${book.author}</p>
+                        <p class="card-text">Price: $${book.price.toFixed(2)}</p>
+                        <button class="btn btn-primary" onclick="addToCart('${book.title}', '${book.author}', ${book.price})">Add to Cart</button>
+                      </div>
+                    </div>
+                  `;
+        
+                  // Append the matching book card to the row
+                  bookRow.appendChild(bookCard);
+                }
+              });
+            }
+        
+            // Add a click event listener to the search button
+            const searchButton = document.getElementById('search-button');
+            searchButton.addEventListener('click', performSearch);
+        
+            // Call the function to display books after the page is fully loaded
+            document.addEventListener('DOMContentLoaded', displayBooks);
+          </script>
+    </div>
+  </div>
+</body>
+</html>

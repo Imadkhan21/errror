@@ -1,0 +1,135 @@
+// Reset default margin and padding
+body, h1, h2, p {
+    margin: 0;
+    padding: 0;
+  }
+  
+  // Set a background color for the body
+  body {
+    background: linear-gradient(135deg, #A1E655, #F1F42D); // Light green and light yellow gradient
+    font-family: Arial, sans-serif;
+  }
+  
+  // Style the navigation bar
+  // Center-align the navigation bar
+  .navbar {
+    display: flex;
+    justify-content: center; // Center-align the navbar horizontally
+    align-items: center; // Center-align the navbar vertically
+    background: linear-gradient(135deg, #A1E655, #F1F42D); // Light green and light yellow gradient
+    text-align: center; // Center-align the text
+    font-weight: bold; 
+  }
+  
+  .navbar a {
+    color: #fff; // Set the text color to white
+    text-decoration: none; // Remove underline from links
+    margin: 0 19px; // Add spacing between links
+    font-size: 23px; // Set the font size
+  }
+  
+  .navbar a:hover {
+    color: #000000; // Change link color on hover
+  }
+  
+  // Style the title overlay
+  #title-overlay {
+    text-align: center;
+    background: linear-gradient(135deg, #35477d, #a1e655); // Dark blue to light green gradient
+    color: #fff; // Set text color to white
+    padding: 20px;
+  }
+  
+  // Remove the gray background for titles
+  #title-overlay h2 {
+    font-size: 40px;
+    margin: 0;
+    font-family: "Arial", sans-serif; // Change the font style
+    font-weight: bold; // Make the text bold
+    background: transparent; // Set the background to transparent
+    text-shadow: 2px 2px 4px rgba(0, 190, 41, 0.5);
+  }
+  
+  // Style the carousel
+  .carousel {
+    margin-top: 20px;
+  }
+  
+  .carousel-inner {
+    height: 600px; // Increase the height as needed
+  }
+  
+  .carousel-item img {
+    object-fit: contain;
+    height: 100%;
+    width: 100%;
+  }
+  
+  // Style the book cards
+  .card {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    border: none;
+    text-align: center;
+    background: #FFF5E1; // Light yellow background
+    margin: 10px;
+    padding: 10px;
+    transition: transform 0.2s;
+  }
+  
+  .card:hover {
+    transform: scale(1.05);
+  }
+  
+  .card-title {
+    font-weight: bold;
+    font-size: 20px;
+    margin: 10px 0;
+  }
+  
+  .card-text {
+    font-size: 16px;
+    color: #020202; // Set text color to dark gray
+    background: transparent; // Remove the gray background shade
+  }
+  
+  .btn-primary {
+    background: linear-gradient(135deg, #a1e655, #f1f42d); // Light green and light yellow gradient
+    border: none;
+    border-radius: 5px;
+    color: #020202; // Set text color to dark gray
+    padding: 5px 10px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    transition: background 0.3s;
+  }
+  
+  .btn-primary:hover {
+    background: linear-gradient(135deg, #5b8c31, #c7ce02); // Light green and dark green gradient
+  }
+  
+  // Change the color of the links in the navigation bar
+  .navbar .navbar-nav .nav-link {
+    color: #000000; // Set the text color to white
+  }
+  
+  // Change the color of the navigation bar brand link
+  .navbar .navbar-brand {
+    color: #0e0d0d; // Set the text color to white
+  }
+  
+  // Change the background color of the active link
+  .navbar .navbar-nav .nav-item.active .nav-link {
+    background: linear-gradient(135deg, #f57f17, #a94614); // Orange gradient
+    color: #fff;
+  }
+  
+  // Style the bold line
+  .bold-line {
+    border: none;
+    border-top: 3px solid #000; // 3px solid black (you can adjust the thickness and color)
+  }
+  

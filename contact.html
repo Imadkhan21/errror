@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact Us</title>
+  <!-- <link rel="stylesheet" href="styles.css"> -->
+  <link rel="stylesheet" href="style.css"> <!-- Link to your custom CSS file -->
+  <script src="index.js"></script>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+  <!-- Navigation bar -->
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href="index.html">Home</a>
+    <a class="navbar-brand" href="cart.html">Cart</a>
+    <a class="navbar-brand" href="payment.html">Payment</a>
+  </nav>
+
+  <!-- Contact Information -->
+  <div class="container mt-4">
+    <h1>Contact Us</h1>
+    <hr>
+    <h3>Feel free to reach out to us for any queries or feedback:</h3>
+    <ul>
+      <li><strong>Address:</strong> Coffe Shop Bookstore Street,University town</li>
+      <li><strong>Phone:</strong> +92 342 0912891</li>
+      <li><strong>Email:</strong> kahnimad35@gmail.com</li>
+    </ul>
+    <h2>Connect with us on social media:</h2>
+    <ul>
+      <li><a href="#">Facebook</a></li>
+      <li><a href="#">Twitter</a></li>
+      <li><a href="#">Instagram</a></li>
+    </ul>
+  </div>
+
+  <!-- Contact Form -->
+  <div class="container mt-4">
+    <h3>Contact Form</h3>
+    <hr>
+    <form id="contact-form">
+      <div class="form-group">
+        <label for="name">Name</label>
+        <input type="text" class="form-control" id="name" name="name" required>
+      </div>
+      <div class="form-group">
+        <label for="email">Email</label>
+        <input type="email" class="form-control" id="email" name="email" required>
+      </div>
+      <div class="form-group">
+        <label for="message">Message</label>
+        <textarea class="form-control" id="message" name="message" rows="4" required></textarea>
+      </div>
+      <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+  </div>
+</body>
+</html>
